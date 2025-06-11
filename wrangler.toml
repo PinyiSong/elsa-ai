@@ -1,7 +1,11 @@
 name = "elsa-ai"
-main = "worker.js"
-compatibility_date = "2025-06-11"
+main = "main.js"
+compatibility_date = "2024-11-11"
 
-[[kv_namespaces]]
-binding = "ELSA_MEMORY"
-id = "b490f8bf6b514a09ae5e1aa92e3bd55b"
+[vars]
+TELEGRAM_BOT_TOKEN = "7542851981:AAH5r8UdxNHI9BL0Td3XBg6Xy5d-vY5hzt4"
+TELEGRAM_CHAT_ID = "7459079105"
+
+kv_namespaces = [
+  { binding = "MEMORY_KV", id = "b490f8bf6b514a09ae5e1aa92e3bd55b" }
+]
