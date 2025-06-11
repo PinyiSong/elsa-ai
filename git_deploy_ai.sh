@@ -1,10 +1,8 @@
 #!/bin/bash
-
 set -e
 
 echo "🚀 開始部署 Elsa Workers AI + Telegram 整合..."
 
-# 讀取環境變數
 echo "🔧 使用參數如下："
 echo "WORKERS_ENDPOINT = $WORKERS_ENDPOINT"
 echo "WORKERS_KV_NAMESPACE = $WORKERS_KV_NAMESPACE"
@@ -13,7 +11,6 @@ echo "TELEGRAM_CHAT_ID = $TELEGRAM_CHAT_ID"
 echo "GIT_REPO_URL = $GIT_REPO_URL"
 echo
 
-# 建立必要檔案（範例 main.js）
 cat > main.js << 'EOL'
 export default {
   async fetch(request, env, ctx) {
@@ -48,7 +45,6 @@ export default {
 }
 EOL
 
-# 建立 wrangler.toml
 cat > wrangler.toml << EOL
 name = "elsa-ai"
 main = "main.js"
@@ -63,18 +59,14 @@ kv_namespaces = [
 ]
 EOL
 
-# 初始化 git 並推送
 git init
-git remote add origin "$GIT_REPO_URL" 2>/dev/null || echo "✅ Git 已設定"
+git remote add origin "$GIT_REPO_URL" 2>/dev/null || true
 git add .
-git commit -m "🌟 部署 Workers AI + Telegram Bot"
+git commit -m "🌟 Workers AI 首次部署"
 git branch -M main
 git push -u origin main
 
-echo "✅ Git 推送完成"
-
-# Wrangler 部署
+echo "✅ GitHub 推送成功，開始部署到 Cloudflare Workers..."
 wrangler publish
 
-echo
-echo "✅ 部署完成！前往網址：$WORKERS_ENDPOINT/chat"
+echo "🎉 部署成功！網址：$WORKERS_ENDPOINT/chat"
