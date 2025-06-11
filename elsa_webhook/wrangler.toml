@@ -1,6 +1,5 @@
 name = "elsa-ai"
-type = "javascript"
-account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
-workers_dev = true
-compatibility_date = "2025-06-11"
 main = "index.js"
+compatibility_date = "2025-06-11"
+account_id = "335d31025308f55f9eb04651ceda03d"
+workers_dev = true

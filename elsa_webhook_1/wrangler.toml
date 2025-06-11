@@ -1,5 +1,5 @@
 name = "elsa-ai"
 main = "index.js"
-account_id = "396ee4e0e1354be1d6b4fac7738f8517"
+account_id = "33dd3105308ff58fb0eb04d51ceda03d"
 compatibility_date = "2025-06-11"
 workers_dev = true
